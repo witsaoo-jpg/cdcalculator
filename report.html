@@ -34,26 +34,27 @@
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <script>
     $(document).ready(function(){
-      let patients = JSON.parse(localStorage.getItem("patients")) || [];
-      let tbody = $("#reportTable tbody");
+     let patients = JSON.parse(localStorage.getItem("patients")) || [];
+let tbody = document.querySelector("#reportTable tbody");
 
-      if(patients.length === 0){
-        tbody.append("<tr><td colspan='7' class='text-center'>ยังไม่มีข้อมูลการลงทะเบียน</td></tr>");
-      } else {
-        patients.forEach(p => {
-          tbody.append(`
-            <tr>
-              <td>${p.fullname}</td>
-              <td>${p.idcard}</td>
-              <td>${p.age}</td>
-              <td>${p.gender}</td>
-              <td>${p.cancerType}</td>
-              <td>${p.treatmentDate}</td>
-              <td>${p.drugName}</td>
-            </tr>
-          `);
-        });
-      }
+if(patients.length === 0){
+  tbody.innerHTML = "<tr><td colspan='7' class='text-center'>ยังไม่มีข้อมูลการลงทะเบียน</td></tr>";
+} else {
+  patients.forEach(p => {
+    tbody.innerHTML += `
+      <tr>
+        <td>${p.fullname}</td>
+        <td>${p.idcard}</td>
+        <td>${p.age}</td>
+        <td>${p.gender}</td>
+        <td>${p.cancerType}</td>
+        <td>${p.treatmentDate}</td>
+        <td>${p.drugName}</td>
+      </tr>
+    `;
+  });
+}
+
     });
   </script>
 </body>
