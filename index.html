@@ -74,6 +74,10 @@
         alert("บันทึกข้อมูลเรียบร้อย ✅");
       });
     });
+    let patients = JSON.parse(localStorage.getItem("patients")) || [];
+patients.push(patient);
+localStorage.setItem("patients", JSON.stringify(patients));
+
   </script>
 </body>
 </html>
